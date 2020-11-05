@@ -42,23 +42,24 @@ jobs:
       # Keep running so we can see if other tests pass
       fail-fast: false
       matrix:
-        include:
-          - k3s-version: v1.19.3+k3s1
-            helm-version: v3.4.0
-            test: install
-          - k3s-version: v1.18.10+k3s1
-            helm-version: v3.3.4
-            test: install
-          - k3s-version: v1.17.13+k3s1
-            helm-version: v3.3.4
-            test: install
-          - k3s-version: v1.16.15+k3s1
-            helm-version: v3.3.4
-            test: install
-
-          - k3s-version: v1.19.3+k3s1
-            helm-version: v3.3.4
-            test: upgrade
+        k3s-version:
+          - v1.19.3+k3s1
+          - v1.18.10+k3s1
+          - v1.17.13+k3s1
+          - v1.16.15+k3s1
+        helm-version:
+          - v3.4.0
+          - v3.3.4
+          - v3.3.4
+          - v3.3.4
+        test:
+          - install
+          - upgrade
+        replicate:
+          - "1"
+          - "2"
+          - "3"
+        # This should result in a total of 96 runs
 
     steps:
       - uses: actions/checkout@v2
