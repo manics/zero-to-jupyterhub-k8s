@@ -606,6 +606,16 @@ ingress:
         - mocked1.domain.name
         - mocked2.domain.name
 
+httpRoute:
+  enabled: true
+  annotations: *annotations
+  gateway:
+    name: gateway-name
+    namespace: gateway-namespace
+  hostnames:
+    - mocked1.domain.name
+    - mocked2.domain.name
+
 cull:
   enabled: true
   users: true
