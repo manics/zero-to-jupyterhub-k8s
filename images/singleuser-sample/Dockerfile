@@ -30,7 +30,7 @@ RUN --mount=type=cache,target=${PIP_CACHE_DIR} \
 # The final stage
 # ---------------
 #
-FROM python:3.12-slim-bookworm
+FROM python:3.14-trixie
 ENV DEBIAN_FRONTEND=noninteractive
 
 ENV NB_USER=jovyan \
